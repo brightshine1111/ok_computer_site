@@ -90,11 +90,11 @@ Now we can see the quotation marks within the string were properly interpreted, 
 Here is a list of common characters that need to be escaped when used in strings:
 
 | Escape Sequence | Description                                        |
-| --------------- | -------------------------------------------------- |
-| "\\""           | Double quotation mark                              |
-| "\\\\"          | The backslash itself                               |
-| "\\n"           | Newline, if you want a string to be multiple lines |
-| "\\t"           | Tab character                                      |
+| :-------------: | -------------------------------------------------- |
+| `"\\""`         | Double quotation mark                              |
+| `"\\\\"`        | The backslash itself                               |
+| `"\\n"`         | Newline, if you want a string to be multiple lines |
+| `"\\t"`         | Tab character                                      |
 
 For those curious, here's an example of a multi-line string:
 
@@ -109,7 +109,9 @@ __Advanced note:__ There are many more escape sequences supported by Python, and
 
 ### Boleans
 
-Booleans are a sepecial type of data that can only contain one of two values: __true__ or __false__. It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is more useful on a conceptual level
+Booleans are a sepecial type of data that can only contain one of two values: __true__ or __false__. It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is useful on a mostly conceptual level. Computers operate on what is called _binary logic_: decisions are made on if things are true or false. Thus it is useful to have a datatype that can store this simple true/false information.
+
+The usefulness of this is shown in more detail in the [Control Structures](#Make-The-Computer-Think-For-You-with-Control-Structures) section.
 
 ### Lists
 
@@ -156,6 +158,8 @@ example
 - else:
 - while ... do:
 
+This is where indentation will be introduced
+
 ## Stop Repeating Yourself with Functions
 
 So you know a bit about what you can do with data. How is this more useful than a calculator though? Here's how: functions.
@@ -163,6 +167,8 @@ So you know a bit about what you can do with data. How is this more useful than 
 Remember functions from way back in algebra class? They looked like _f(x) = x/2_ or _g(x) = x + 3_, and thus _f(10)_ = 5 and _g(10)_ = 13.
 
 Functions in the world of code are the same idea: a recorded set of instructions you can call on any time you want, that will do the same thing every time.
+
+### Anatomy of a Function
 
 ### Input & Output
 
