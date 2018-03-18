@@ -1,3 +1,6 @@
+---
+toc: true
+---
 # OKComputer Language Reference
 
 ## Introduction
@@ -59,11 +62,11 @@ Most characters can be simply enlcosed in quotes to be stored in a variable:
 
 ```
 >>> apple = "Je suis presé"
-"Je suis presé"
+'Je suis presé'
 >>> pear = "Comment ça va?"
-"Comment ça va?"
+'Comment ça va?'
 >>> orange = "Here<>is!more#punc@tu&ation^"
-"Here<>is!more#punc@tu&ation^"
+'Here<>is!more#punc@tu&ation^'
 >>>
 ```
 
@@ -91,10 +94,10 @@ Here is a list of common characters that need to be escaped when used in strings
 
 | Escape Sequence | Description                                        |
 | :-------------: | -------------------------------------------------- |
-| `"\\""`         | Double quotation mark                              |
-| `"\\\\"`        | The backslash itself                               |
-| `"\\n"`         | Newline, if you want a string to be multiple lines |
-| `"\\t"`         | Tab character                                      |
+| `"\""`         | Double quotation mark                              |
+| `"\\"`        | The backslash itself                               |
+| `"\n"`         | Newline, if you want a string to be multiple lines |
+| `"\t"`         | Tab character                                      |
 
 For those curious, here's an example of a multi-line string:
 
@@ -107,7 +110,7 @@ multiple lines'
 
 __Advanced note:__ There are many more escape sequences supported by Python, and thus also by okc, but only the most useful to beginners are mentioned here. For those interested in more details, check out [Python's documetation on its Lexical Analysis](https://docs.python.org/3.5/reference/lexical_analysis.html).
 
-### Boleans
+### Booleans
 
 Booleans are a sepecial type of data that can only contain one of two values: __true__ or __false__. It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is useful on a mostly conceptual level. Computers operate on what is called _binary logic_: decisions are made on if things are true or false. Thus it is useful to have a datatype that can store this simple true/false information.
 
@@ -123,9 +126,9 @@ The usefulness of this is shown in more detail in the [Control Structures](#Make
 
 All basic operations included:
 
-- +
-- -
-- *
+- \+
+- \-
+- \*
 - /
 - // (floor)
 - % (remainder)
