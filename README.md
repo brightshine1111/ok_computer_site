@@ -1,7 +1,3 @@
----
-toc: true
-toc_label: "Contents"
----
 # OKComputer Language Reference
 
 ## Introduction
