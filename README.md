@@ -1,6 +1,3 @@
----
-toc: true
----
 # OKComputer Language Reference
 
 ## Introduction
