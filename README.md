@@ -8,6 +8,8 @@
 
 (will basically be the Python interpreter)
 
+
+
 ## Storing Data
 
 The most basic building block of programs is variables. Variables store data. In okc, they are created just by typing a word in the interpreter that is not a keyword and assigning some value to it with the equals sign:
@@ -109,7 +111,7 @@ __Advanced note:__ There are many more escape sequences supported by Python, and
 
 ### Booleans
 
-Booleans are a sepecial type of data that can only contain one of two values: __True__ or __False__. It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is useful on a mostly conceptual level. Computers operate on what is called _binary logic_: decisions are made on if things are true or false. Thus it is useful to have a datatype that can store this simple true/false information.
+Booleans are a sepecial type of data that can only contain one of two values: __True__ or __False__ (note the capitalization). It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is useful on a mostly conceptual level. Computers operate on what is called _binary logic_: decisions are made on if things are true or false. Thus it is useful to have a datatype that can store this simple true/false information.
 
 The usefulness of this is shown in more detail in the [Control Structures](#Make-The-Computer-Think-For-You-with-Control-Structures) section.
 
@@ -212,73 +214,21 @@ IndexError: list index out of range
 >>>
 ```
 
-## Operations
-
-### Arithmetic
-
-All basic operations included:
-
-- \+
-- \-
-- \*
-- /
-- // ("floor")
-- % (remainder)
-- ** (exponent)
-- sqrt()
-
-#### What about strings?
-
-For your convenience, if a string contains only numbers, you can use it in an arrithmetic operation and it'll be treated just like a number varialbe.
+Note that because lists are zero-based, the final element of a list has index _lengthOf(list)-1_. Using lengthOf(list) directly as the index when accessing a list will return the same IndexError specified above:
 
 ```
-example
+>>> a_list = ["Macintosh", 3.45654, 234, True]
+['Macintosh', 3.45654, -234, True]
+>>> a_list[lengthOf(a_list)]
+IndexError: list index out of range
+>>>
 ```
 
-(About string concatenation)
+Because of this, careful attention must be paid when using variables as list indicies. There are ways to guard against this using [comparison operators](#Comparison-Operators) and [control structures](#Make-The-Computer-Think-For-You-with-Control-Structures), discussed later in the manual.
 
-### Comparison
+## Input & Output
 
-- equals, ==
-- \>
-- \<
-- \>=
-- \<=
-
-### Advanced: Binary Operations
-
-## Make The Computer Think For You with Control Structures
-
-- if ... then:
-- else:
-- while ... do:
-
-This is where indentation will be introduced
-
-## Stop Repeating Yourself with Functions
-
-So you know a bit about what you can do with data. How is this more useful than a calculator though? Here's how: functions.
-
-Remember functions from way back in algebra class? They looked like _f(x) = x/2_ or _g(x) = x + 3_, and thus _f(10)_ = 5 and _g(10)_ = 13.
-
-Functions in the world of code are the same idea: a recorded set of instructions you can call on any time you want, that will do the same thing every time.
-
-### Anatomy of a Function
-
-### Input & Output
-
-When functions are called from the interpreter, they don't automatically show you what's going on as they're running. If you want a function to "talk back" to you, you have to instruct it to do so.
-
-OKC code can write back to the interpreter using the key word pair "tell me":
-
-```
->>> define function HelloWorld() as:
-...   tell me "Hello, world!"
->>> HelloWorld()
-Hello, world!
-```
-
-OKC gets input from the interpreter with the key word pair "ask me". After you hit return after entering "ask me" on the interpreter, it will start a new line and wait for you to hit return again to signal the end of your input.
+okc gets input from the interpreter with the key word pair "ask me". After you hit return after entering "ask me" on the interpreter, it will start a new line and wait for you to hit return again to signal the end of your input.
 
 ```
 >>> answer = ask me
@@ -302,6 +252,299 @@ How old are you? 23 [return]                 # 23 has now been stored in answer
 >>>
 ```
 
+You can also explicitly instruct the interpreter to display the value of a variable using the keyword pair "tell me":
+
+```
+>>> hello = "Hello World"
+'Hello World'
+>>> tell me hello
+'Hello World'
+>>>
+```
+
+When using the interpreter directly, this is redundant as just typing in a variable's name then hitting enter will also return its value. The `tell me` keywords are useful when creating [functions](#Stop-Repeating-Yourself-with-Functions).
+
+## Operations
+
+So we know how to store and manipulate data. Now lets do stuff with data.
+
+### Arrithmetic
+
+okc includes the basic operations one would find on a standard calculator:
+
+| Symbol | Operation |
+| ------ | --------- |
+| \+ | Addition |
+| \- | Subtraction |
+| \* | Multiplication |
+| / | Division |
+| ** | Exponent |
+| sqrt() | Square root (note this is actually a function) |
+
+If you've ever used a scientific calculator where you type out the entire expression you want to solve and then hit the "=" button to solve it, the okc interpreter works in the same way, just think of the return button as the equals button:
+
+```
+>>> 5 + 10
+15
+>>>
+```
+
+Parenthesis can be used just like in standard algebra, and standard order of operations is obeyed.
+
+Standard order of operations, listed from which is executed first to last:
+
+1. Parenthesis-enclosed expressions. Parenthesis can be nested [ 5 * ((2 + 8) * (6 - 2) - 1) ]; the innermost parenthesis are evaluated first. All function calls within expressions are considered parenthetical expressions, e.g. sqrt() falls into this category.
+1. Exponential expressions.
+1. Multiplication and Division (left to right).
+1. Addition and Subtraction (left to right).
+
+In the same way that variables can be used as the index to access the elements of a list, variables containing numbers can be used directly in arrithmetic:
+
+```
+>>> x = 5
+5
+>>> y = 10
+10
+>>> y/x
+2
+>>>
+```
+
+Variables can also directly be assigned the result of an expression:
+
+```
+>>> x = 2 ** 4
+16
+>>> x
+16
+>>>
+```
+
+#### Strings as Numbers
+
+For convenience, if a string contains only numbers, it can be used in an arrithmetic operation with number variables and it'll be treated just like a number varialbe:
+
+```
+>>> x = "54"
+'54'
+>>> y = 9
+9
+>>> x/y
+6
+>>>
+```
+
+If you attempt to use a string that does not contain only numbers in an arrithmetic operation, an error occurs:
+
+```
+>>> x = "fish"
+'fish'
+>>> x/5
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+>>>
+```
+
+### String Concatenation
+
+There is one operator that does work with non-numeric strings: the "\+" operator. For strings, this is called the "concatenation" operator; it will join multiple strings together into a single string:
+
+```
+>>> a = "This "
+'This '
+>>> b = "is a "
+'is a '
+>>> c = "string concatenation"
+'string concatenation.'
+>>> d = a + b + c + "."
+'This is a string concatenation.'
+>>>
+```
+
+Notice how both string variables and string literals can be joined together within the same expression.
+
+## Make The Computer Think For You With Control Sturctures
+
+We will now get into the part of programming that actually makes programs useful: __control structures__. This is code that makes the computer do different things based on the values of variables while the program is running.
+
+### if blocks
+
+The most basic control structure is a so-called `if` or `if ... else` block, called so because this is literally what it looks like:
+
+```
+>>> condition = True
+>>> variable = 1
+>>> if condition is True:
+...   variable = 5
+... else:
+...   variable = 0
+...
+5
+>>> variable
+5
+>>>
+```
+
+The `else` statement doesn't have to be used:
+
+```
+>>> condition = False
+>>> variable = 1
+>>> if condition is True:
+...   variable = 5
+...
+>>> variable
+1
+>>>
+```
+
+This is where boolean variables become useful: the condition following the `if` statement must evaluate to the boolean True or False values. It is possible to derive boolean values from non-boolean variables (discussed below in [Comparison Operators](Comparison-Operators)), but first a couple major concepts must be addressed:
+
+#### Logical Blocks
+
+Notice the indentation on the lines following the "if" and "else" lines. This is how okc represents one of the core concepts of programming languages: __logical blocks__. Logical blocks are blocks of code "nested" within another block of code that get executed based on the result of a condition evaluatiion (i.e. "if condition is True:").
+
+The "outermost" logical block is when the cursor is all the way to the left on the interpreter. A new block is indented two spaces in from its parent block. Logical blocks can be nested infinitely in theory:
+
+```
+>>> if condition1 is True:
+...   if condition2 is True:
+...     if condition3 is True:
+...       if condition4 is True:
+```
+
+The number of spaces used when indenting blocks __does matter__. The interpreter will throw an error if an unexpected or incorrect indentation is used:
+
+```
+>>> if condition is True:
+... x = 5
+IndentationError: expected an indented block
+>>>
+```
+
+```
+>>> if condition is True:
+...   x = 5
+...     y = 10
+IndentationError: unexpected indent
+```
+
+#### What is this "..." ?
+
+You'll notice something new from the interpreter in the examples above: the lines beginning with "...".
+
+When a statement is entered into the interpreter that expects a new logical block to follow (like an `if` statement), after hitting enter, instead of executing the statement, the interpreter will move to a new line starting with "..." and wait for input. This is the interpreter's way of saying "Hey, the code isn't finished yet!".
+
+Note that hitting enter after typing a line inside a logical block _still_ will not make the interpreter start executing - notice there's a blank line staring with "..." in the two completed `if` statement examples above before the result is displayed. While inside a logical block, the interpreter allows you to keep writing statements. You finally tell it to close the block by hitting enter twice.
+
+### Comparison Operators
+
+As noted above, `if` statements must be followed by an expression that evaluates to the boolean True or False values. The way to do this with non-boolean values is with __comparison operators__ - operators that compare two values and return True or False.
+
+The operators supported by okc are:
+
+| Symbol | Operation |
+| ------ | --------- |
+| equals, is, == | Equal to (all three are valid syntax) |
+| \> | Greater than |
+| \< | Less than |
+| \>= | Greater than or equal to |
+| \<= | Less than or equal to |
+
+Just like arrithmetic operations, variables can be assigned the results of comparisons:
+
+```
+>>> x = 5
+5
+>>> y = 10
+10
+>>> z = x > y
+False
+>>> z
+False
+>>>
+```
+
+Note, though, that booleans can only be compared to booleans, and non-booleans to non-booleans. Trying to mix the two will produce an error:
+
+```
+>>> x = 5
+5
+>>> y = True
+True
+>>> x > True
+TypeError: unsupported operand type(s) for >: 'int' and 'bool'
+>>>
+```
+
+Note also that booleans can only be compared using the equals operators, as there's no logical way for "True" to be greater or less than "False".
+
+#### String Comparisons
+
+Strings are partially supported by the comparison operators. Like with arrithmetic operators, if a string containing only numbers is comapred with a number variable, the string will get converted to the numeric value it represents.
+
+When strictly comparing strings to strings, only the equals operator is supported:
+
+```
+>>> "apple" == "apple"
+True
+>>>
+```
+
+Trying to use greater than or less than with strings will result in an error.
+
+## Stop Repeating Yourself with Functions
+
+So you know a bit about what you can do with data. How is this more useful than a calculator though? Here's how: functions.
+
+Remember functions from way back in algebra class? They looked like _f(x) = x/2_ or _g(x) = x + 3_, and thus _f(10)_ = 5 and _g(10)_ = 13.
+
+Functions in the world of code are the same idea: a recorded set of instructions you can call on any time you want, that will do the same thing every time.
+
+### Anatomy of a Function
+
+Here is an example function definition:
+
+```
+>>> define function add(a, b) as:
+...   return a + b
+...
+>>>
+```
+
+The key parts of the syntax here are:
+
+- The keywords denoting a function definition: _define function_
+- The function's name: _add_
+- The function's arguments _(a, b)_
+- The keyword _as_ followed by colon
+- The keyword _return_ inside the function body
+
+Functions are another part of okc that use logical blocks. Just like with `if` statements, once inside a function definition, you can write as many lines of code as you wish before exiting the definition by hitting enter twice.
+
+### The return statement
+
+Any statements that can be written on the interpreter can be written inside a function's body, with the addition of the _return_ statement. This is how functions return values back to the environment they were called from. For example, calling the `add` function defined above would look like this:
+
+```
+>>> add(1, 2)
+3
+>>>
+```
+
+If the return statement were not present in the function definition, no value would be returned.
+
+### Making Functions Talk
+
+When functions are called from the interpreter, they don't automatically show you what's going on as they're running. If you want a function to "talk back" to you as its working, you have to explicitly instruct it to do so with the "tell me" keyword pair:
+
+```
+>>> define function HelloWorld() as:
+...   tell me "Hello, world!"
+...
+>>> HelloWorld()
+Hello, world!
+```
+
 ## Stop Forgetting Everything with Scripts
 
 (About scripts)
@@ -318,13 +561,13 @@ You can include other scripts in yours by using the "import" keyword in your scr
 
 ### Comments
 
-(About comments, made with pound symbol)
+Text can be entered into 
 
 ## Example script: Find area of triangle
 
 ```
 # file: ta.okc
-# ----------------------------------------------------
+# -------------------------------------
 tell me "Let's determine the area of a triangle."
 a = ask me "Length of first side? "
 b = ask me "Length of second side? "
