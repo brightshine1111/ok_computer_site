@@ -40,7 +40,7 @@ __Fine details:__ Variable names must start with either an upper or lowercase le
 
 ### Numbers
 
-The most basic data a variable can store is a number, as shown in the examples in [Storing Data](#Storing-Data).
+The most basic data a variable can store is a number, as shown in the examples in [Storing Data](#storing-data).
 
 Numbers can be either positive or negative (or zero), and can use a decimal point if wished.
 
@@ -113,7 +113,7 @@ __Advanced note:__ There are many more escape sequences supported by Python, and
 
 Booleans are a sepecial type of data that can only contain one of two values: __True__ or __False__ (note the capitalization). It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is useful on a mostly conceptual level. Computers operate on what is called _binary logic_: decisions are made on if things are true or false. Thus it is useful to have a datatype that can store this simple true/false information.
 
-The usefulness of this is shown in more detail in the [Control Structures](#Make-The-Computer-Think-For-You-with-Control-Structures) section.
+The usefulness of this is shown in more detail in the [Control Structures](#make-the-computer-think-for-you-with-control-structures) section.
 
 ### Updating Variables
 
@@ -202,7 +202,7 @@ Lists have finite length; this length gets defined when the list is defined. In 
 >>>
 ```
 
-\*_Functions are introduced [later in this manual](#Make-The-Computer-Think-For-You-with-Control-Structures)_
+\*_Functions are introduced [later in this manual](#make-the-computer-think-for-you-with-control-structures)_
 
 If you try to access a list element with an index beyond the elements the list actually contains, an error is returned:
 
@@ -224,7 +224,7 @@ IndexError: list index out of range
 >>>
 ```
 
-Because of this, careful attention must be paid when using variables as list indicies. There are ways to guard against this using [comparison operators](#Comparison-Operators) and [control structures](#Make-The-Computer-Think-For-You-with-Control-Structures), discussed later in the manual.
+Because of this, careful attention must be paid when using variables as list indicies. There are ways to guard against this using [comparison operators](#comparison-operators) and [control structures](#make-the-computer-think-for-you-with-control-structures), discussed later in the manual.
 
 ## Input & Output
 
@@ -262,7 +262,7 @@ You can also explicitly instruct the interpreter to display the value of a varia
 >>>
 ```
 
-When using the interpreter directly, this is redundant as just typing in a variable's name then hitting enter will also return its value. The `tell me` keywords are useful when creating [functions](#Stop-Repeating-Yourself-with-Functions).
+When using the interpreter directly, this is redundant as just typing in a variable's name then hitting enter will also return its value. The `tell me` keywords are useful when creating [functions](#stop-repeating-yourself-with-functions).
 
 ## Operations
 
@@ -362,11 +362,11 @@ There is one operator that does work with non-numeric strings: the "\+" operator
 
 Notice how both string variables and string literals can be joined together within the same expression.
 
-## Make The Computer Think For You With Control Sturctures
+## Make The Computer Think For You with Control Sturctures
 
 We will now get into the part of programming that actually makes programs useful: __control structures__. This is code that makes the computer do different things based on the values of variables while the program is running.
 
-### if blocks
+### "if" blocks
 
 The most basic control structure is a so-called `if` or `if ... else` block, called so because this is literally what it looks like:
 
@@ -397,7 +397,7 @@ The `else` statement doesn't have to be used:
 >>>
 ```
 
-This is where boolean variables become useful: the condition following the `if` statement must evaluate to the boolean True or False values. It is possible to derive boolean values from non-boolean variables (discussed below in [Comparison Operators](Comparison-Operators)), but first a couple major concepts must be addressed:
+This is where boolean variables become useful: the condition following the `if` statement must evaluate to the boolean True or False values. It is possible to derive boolean values from non-boolean variables (discussed below in [Comparison Operators](#comparison-operators)), but first a couple major concepts must be addressed:
 
 #### Logical Blocks
 
