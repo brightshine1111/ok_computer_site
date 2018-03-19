@@ -362,7 +362,7 @@ There is one operator that does work with non-numeric strings: the "\+" operator
 
 Notice how both string variables and string literals can be joined together within the same expression.
 
-## Make The Computer Think For You with Control Sturctures
+## Make The Computer Think For You with Control Structures
 
 We will now get into the part of programming that actually makes programs useful: __control structures__. This is code that makes the computer do different things based on the values of variables while the program is running.
 
