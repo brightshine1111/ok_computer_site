@@ -2,11 +2,11 @@
 
 ## Introduction
 
-okcomputer (abbreviated as "okc") is a programming language written for beginners. The author is a fan of Radiohead, and name is a reference to Radiohead's album "OK Computer".
+OKComputer (abbreviated as "okc") is a programming language written for beginners. The author is a fan of Radiohead, and the name is a reference to Radiohead's album "OK Computer".
 
 It encapsulates the bare minimum functionality a programming language needs to be useful. It's written with the intent to strike a balance between easy-to-understand syntax and introducing the novice to some of the paradigms of programming that are less intuitive.
 
-It is based on Python 3.5 an borrows most of its syntax from there, with some minor additions. The intent of using Python as the base is this language is a kind of "training wheels" that makes it easy to learn the basics. Then, once the learner is comfortable with the basics, they can start using more advanced, "full" Python syntax right in in the okc interpreter.
+It is based on Python 3.5 an borrows most of its syntax from there, with some minor additions. The intent of using Python as the base is this language is to be a kind of "training wheels" that makes it easy to learn the basics. Once the learner is comfortable with the basics, they can start using more advanced, "full" Python syntax right in in the okc interpreter.
 
 ### Installation
 
@@ -14,7 +14,7 @@ For now this is only a fictional language that has not been implemented, so a di
 
 ### The Interpreter
 
-okc (and its parent language Python) are what are called interpreted languages. This means, to use them, you open up a Unix or Windows terminal on a machine with okc installed, enter the command `okc`, and you're now in the interpreter. The okc interpeter shows you it's awaiting a command by beginning a line with `>>>`.
+okc (and its parent language Python) are what are called interpreted languages. This means to use them, you open up a Unix or Windows terminal on a machine with okc installed, enter the command `okc`, and you're now in the interpreter. The okc interpeter shows you it's awaiting a command by beginning a line with `>>>`.
 
 The interpreter interprets the text you type into it and, if you've entered proper okc syntax, performs the actions you're telling it to do. Entering improper syntax returns errors.
 
@@ -115,8 +115,6 @@ For those curious, here's an example of a multi-line string:
 multiple lines'
 >>>
 ```
-
-__Advanced note:__ There are many more escape sequences supported by Python, and thus also by okc, but only the most useful to beginners are mentioned here. For those interested in more details, check out [Python's documetation on its Lexical Analysis](https://docs.python.org/3.5/reference/lexical_analysis.html).
 
 ### Booleans
 
@@ -302,7 +300,7 @@ Parenthesis can be used just like in standard algebra, and standard order of ope
 
 Standard order of operations, listed from which is executed first to last:
 
-1. Parenthesis-enclosed expressions. Parenthesis can be nested [ 5 * ((2 + 8) * (6 - 2) - 1) ]; the innermost parenthesis are evaluated first. All function calls within expressions are considered parenthetical expressions, e.g. sqrt() falls into this category.
+1. Parenthesis-enclosed expressions. Parenthesis can be nested ( 5 * ((2 + 8) * (6 - 2) - 1) ); the innermost parenthesis are evaluated first. All function calls within expressions are considered parenthetical expressions, e.g. sqrt() falls into this category.
 1. Exponential expressions.
 1. Multiplication and Division (left to right).
 1. Addition and Subtraction (left to right).
@@ -615,4 +613,6 @@ Area is: 6
 
 ## Copyright
 
-All parts of okc that are unmodified versions of the Python synatax are Copyright © 2001-2018 Python Software Foundation; All Rights Reserved.
+All parts of okc that are unmodified versions of the Python synatax are copyright © 2001-2018 Python Software Foundation; All Rights Reserved.
+
+All original text copyright © 2018 Ben Faucher.
