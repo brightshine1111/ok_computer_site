@@ -104,7 +104,7 @@ Now we can see the quotation marks within the string were properly interpreted, 
 Here is a list of common characters that need to be escaped when used in strings:
 
 | Escape Sequence | Description                                        |
-| :-------------: | -------------------------------------------------- |
+| --------------- | -------------------------------------------------- |
 | `"\""`          | Double quotation mark                              |
 | `"\\"`          | The backslash itself                               |
 | `"\n"`          | Newline, if you want a string to be multiple lines |
