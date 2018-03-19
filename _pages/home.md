@@ -1,6 +1,10 @@
-# OKComputer Language Reference
-
-## Introduction
+---
+title: "OKComputer Language Reference"
+permalink: /
+toc: true
+toc_label: "Contents"
+toc_icon: "cogs"
+---
 
 OKComputer (abbreviated as "okc") is a programming language written for beginners. The author is a fan of Radiohead, and the name is a reference to Radiohead's album "OK Computer".
 
@@ -8,11 +12,11 @@ It encapsulates the bare minimum functionality a programming language needs to b
 
 It is based on Python 3.5 and borrows most of its syntax from there, with some minor additions. The intent of using Python as the base is this language is to be a kind of "training wheels" that makes it easy to learn the basics. Once the learner is comfortable with the basics, they can start using more advanced, "full" Python syntax right in in the okc interpreter.
 
-### Installation
+## Installation
 
 For now, this is only a fictional language that has not been implemented, so a distribution for installation does not exist.
 
-### The Interpreter
+## The Interpreter
 
 okc (and its parent language Python) are what are called interpreted languages. This means to use them, you open up a Unix or Windows terminal on a machine with okc installed, enter the command `okc`, and you're now in the interpreter. The okc interpeter shows you it's awaiting a command by beginning a line with `>>>`.
 
