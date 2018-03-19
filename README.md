@@ -2,13 +2,21 @@
 
 ## Introduction
 
-(intent of language)
+okcomputer (abbreviated as "okc") is a programming language written for beginners. The author is a fan of Radiohead, and name is a reference to Radiohead's album "OK Computer".
 
-## The Interpreter
+It encapsulates the bare minimum functionality a programming language needs to be useful. It's written with the intent to strike a balance between easy-to-understand syntax and introducing the novice to some of the paradigms of programming that are less intuitive.
 
-(will basically be the Python interpreter)
+It is based on Python 3.5 an borrows most of its syntax from there, with some minor additions. The intent of using Python as the base is this language is a kind of "training wheels" that makes it easy to learn the basics. Then, once the learner is comfortable with the basics, they can start using more advanced, "full" Python syntax right in in the okc interpreter.
 
+### Installation
 
+For now this is only a fictional language that has not been implemented, so a distribution for installation does not exist.
+
+### The Interpreter
+
+okc (and its parent language Python) are what are called interpreted languages. This means, to use them, you open up a Unix or Windows terminal on a machine with okc installed, enter the command `okc`, and you're now in the interpreter. The okc interpeter shows you it's awaiting a command by beginning a line with `>>>`.
+
+The interpreter interprets the text you type into it and, if you've entered proper okc syntax, performs the actions you're telling it to do. Entering improper syntax returns errors.
 
 ## Storing Data
 
@@ -97,6 +105,7 @@ Here is a list of common characters that need to be escaped when used in strings
 | `"\\"`          | The backslash itself                               |
 | `"\n"`          | Newline, if you want a string to be multiple lines |
 | `"\t"`          | Tab character                                      |
+| `"\#"`          | Pound/hash symbol (used in writing scripts)        |
 
 For those curious, here's an example of a multi-line string:
 
@@ -547,23 +556,32 @@ Hello, world!
 
 ## Stop Forgetting Everything with Scripts
 
-(About scripts)
+Everything this manual has explained so far has existed within the confines of the interpreter. When the interpreter is closed, any work you've done disappears.
 
-### Structure
+The way to preserve work is to save your okc code to script files.
 
-### Invocation
+Script files are just simple text files with the extension ".okc". Any text editor can be used to write them.
 
-### Using Code From Outside Your Script
+To write a script, open up a new text file and start writing okc code as if you were in the interpreter. The only difference will be the code will not get executed on-the-fly. This means you, the programmer, have to check for syntax errors yourself, as the text editor will not point them out for you before you attempt to run the script. The interpreter will display any syntax errors in the script when you try to run it.
 
-You can include other scripts in yours by using the "import" keyword in your script.
+To invoke a script, simply start the okc interpreter in the folder you have the script in, then simply enter the script's filename. For example, let's say we're in a directory with a script called example.okc that just tells us "Hello, world!":
 
-(Example of function written in one script, another script uses it and calls the function)
+```
+>>> example.okc
+Hello, world!
+>>>
+```
 
 ### Comments
 
-Text can be entered into 
+Code can be annotated without interrupting its syntax with comments. A comment is started with the pound/hash sign "#". Once the hash sign has been typed on a line, all text following it becomes a comment. For example:
 
-## Example script: Find area of triangle
+```
+# This is a comment that takes up an entire line
+a = 2 # This is a comment that starts after some valid code
+```
+
+### Example script: Find area of triangle
 
 ```
 # file: ta.okc
