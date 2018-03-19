@@ -55,7 +55,7 @@ Strings can contain any character that can be displayed on a screen. This includ
 - Non-Latin characters, like Greek, Arabic, and Chinese
 - Even emojis 😯 😄
 
-Most characters can be simply enlcosed in quotes to be stored in a variable:
+Most characters can be simply enlcosed in quotes to be stored as a string variable:
 
 ```
 >>> apple = "Je suis presé"
@@ -67,7 +67,7 @@ Most characters can be simply enlcosed in quotes to be stored in a variable:
 >>>
 ```
 
-Some characters need to be "escaped" in order to be interpreted as a string. Quotation marks, for example, since they are used to used to denote strings in code, need to be escaped, otherwise the interpreter will think you're just writing muptiple strings, which can result in some cryptic errors:
+Some characters need to be "escaped" in order to be interpreted as a string. Quotation marks, for example, since they are used to used to denote strings in code, need to be escaped, otherwise the interpreter will think you're just writing muptiple strings. This can result in some cryptic errors:
 
 ```
 >>> apple = ""Did you really do that?" Margaret asked."
@@ -77,7 +77,7 @@ SyntaxError: Unknown operator 'Did'
 
 What is happening here is an empty string is being defined (""), which is being followed by the text "Did you really do that?" _as code rather than as a string_. "Did" is not a keyword in okc, so it results in a syntax error.
 
-To escape quotes, simply precede it with a backslash (\\):
+To escape quotes, simply precede them with a backslash (\\):
 
 ```
 >>> apple = "\"Did you really do that?\" Margaret asked."
@@ -91,10 +91,10 @@ Here is a list of common characters that need to be escaped when used in strings
 
 | Escape Sequence | Description                                        |
 | :-------------: | -------------------------------------------------- |
-| `"\""`         | Double quotation mark                              |
-| `"\\"`        | The backslash itself                               |
-| `"\n"`         | Newline, if you want a string to be multiple lines |
-| `"\t"`         | Tab character                                      |
+| `"\""`          | Double quotation mark                              |
+| `"\\"`          | The backslash itself                               |
+| `"\n"`          | Newline, if you want a string to be multiple lines |
+| `"\t"`          | Tab character                                      |
 
 For those curious, here's an example of a multi-line string:
 
@@ -109,13 +109,108 @@ __Advanced note:__ There are many more escape sequences supported by Python, and
 
 ### Booleans
 
-Booleans are a sepecial type of data that can only contain one of two values: __true__ or __false__. It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is useful on a mostly conceptual level. Computers operate on what is called _binary logic_: decisions are made on if things are true or false. Thus it is useful to have a datatype that can store this simple true/false information.
+Booleans are a sepecial type of data that can only contain one of two values: __True__ or __False__. It may not be immediately obvious why such a data type exists. You may ask "why not just use a number that's either 0 or not zero?" and you are correct in that a number can accomplish the same task. The boolean type is useful on a mostly conceptual level. Computers operate on what is called _binary logic_: decisions are made on if things are true or false. Thus it is useful to have a datatype that can store this simple true/false information.
 
 The usefulness of this is shown in more detail in the [Control Structures](#Make-The-Computer-Think-For-You-with-Control-Structures) section.
 
-### Lists
+### Updating Variables
 
-(About lists)
+Once a variable is defined, it can be reassigned a new value an unlimited number of times, and the original type doesn't even need to be used again:
+
+```
+>>> apple = 5
+5
+>>> apple = "Macintosh"
+'Macintosh
+>>>
+```
+
+## Lists
+
+Say you want to store several related values together in a single variable. This is achieved with __lists__.
+
+### Defining Lists
+
+Lists are defined by enclosing multiple values in square brackets ("[ ]"):
+
+```
+>>> apples = ["Red Delicious","Macintosh","Granny Smith"]
+['Red Delicious', 'Macintosh', 'Granny Smith']
+>>> ages = [2, 3, 12, 49]
+[2, 3, 12, 49]
+>>>
+```
+
+Lists are extremely versatile. A single list can contain contain multiple data types. Here you can see a single list containing all three of the data types described:
+
+```
+>>> a_list = ["Macintosh", 3.45654, -234, True]
+['Macintosh', 3.45654, -234, True]
+>>>
+```
+
+Existing variables can also be used to store values in a list:
+
+```
+>>> apple = "Macintosh"
+'Macintosh'
+>>> a_list = [apple, 3.45654, -234, True]
+['Macintosh', 3.45654, -234, True]
+>>>
+```
+
+### Accessing Lists
+
+Now that you've got a list defined, you're probably going to need to access the elements of the list individually at some point. This is done by using the same square brackets in a different way. Take a look at the example below:
+
+```
+>>> a_list = ["Macintosh", 3.45654, 234, True]
+['Macintosh', 3.45654, -234, True]
+>>> a_list[0]
+'Macintosh'
+>>> a_list[1]
+3.45654
+```
+
+Note how the brackets are appended to the end of the list's name with a number between them. That number is called the __index__. Also note that the first element in the list is accessed with index 0. This is standard practices across almost all programming languages; lists are "zero-based", their index starts at 0.
+
+#### Variable Index
+
+In the same way that existing variables can be used in list definition, a variable can be used as the index when accessing list elements:
+
+```
+>>> a_list = ["Macintosh", 3.45654, 234, True]
+['Macintosh', 3.45654, -234, True]
+>>> idx = 1
+1
+>>> a_list[idx]
+3.45654
+>>>
+```
+
+#### Range
+
+Lists have finite length; this length gets defined when the list is defined. In the example above, `a_list` has length 4, because it has 4 elements. The length of lists can be accessed in okc with the `lengthOf()` function\*:
+
+```
+>>> a_list = ["Macintosh", 3.45654, 234, True]
+['Macintosh', 3.45654, -234, True]
+>>> lengthOf(a_list)
+4
+>>>
+```
+
+\*_Functions are introduced [later in this manual](#Make-The-Computer-Think-For-You-with-Control-Structures)_
+
+If you try to access a list element with an index beyond the elements the list actually contains, an error is returned:
+
+```
+>>> a_list = ["Macintosh", 3.45654, 234, True]
+['Macintosh', 3.45654, -234, True]
+>>> a_list[6]
+IndexError: list index out of range
+>>>
+```
 
 ## Operations
 
@@ -127,7 +222,7 @@ All basic operations included:
 - \-
 - \*
 - /
-- // (floor)
+- // ("floor")
 - % (remainder)
 - ** (exponent)
 - sqrt()
@@ -256,3 +351,7 @@ Length of third side? 5 [return]
 Area is: 6
 >>>
 ```
+
+## Copyright
+
+All parts of okc that are unmodified versions of the Python synatax are Copyright © 2001-2018 Python Software Foundation; All Rights Reserved.
