@@ -6,11 +6,11 @@ OKComputer (abbreviated as "okc") is a programming language written for beginner
 
 It encapsulates the bare minimum functionality a programming language needs to be useful. It's written with the intent to strike a balance between easy-to-understand syntax and introducing the novice to some of the paradigms of programming that are less intuitive.
 
-It is based on Python 3.5 an borrows most of its syntax from there, with some minor additions. The intent of using Python as the base is this language is to be a kind of "training wheels" that makes it easy to learn the basics. Once the learner is comfortable with the basics, they can start using more advanced, "full" Python syntax right in in the okc interpreter.
+It is based on Python 3.5 and borrows most of its syntax from there, with some minor additions. The intent of using Python as the base is this language is to be a kind of "training wheels" that makes it easy to learn the basics. Once the learner is comfortable with the basics, they can start using more advanced, "full" Python syntax right in in the okc interpreter.
 
 ### Installation
 
-For now this is only a fictional language that has not been implemented, so a distribution for installation does not exist.
+For now, this is only a fictional language that has not been implemented, so a distribution for installation does not exist.
 
 ### The Interpreter
 
